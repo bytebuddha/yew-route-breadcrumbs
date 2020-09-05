@@ -8,7 +8,7 @@ documentation = "https://docs.rs/yew-route-breadcrumbs-derive"
 repository = "https://github.com/Bytebuddha/yew-route-breadcrumbs"
 license = "MIT"
 keywords = ["yew", "breadcrumbs", "wasm"]
-categories = ["gui", "web-programming", "yew"]
+categories = ["gui", "web-programming"]
 
 [lib]
 proc-macro = true

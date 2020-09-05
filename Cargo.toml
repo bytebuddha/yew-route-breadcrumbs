@@ -9,7 +9,7 @@ readme = "Readme.md"
 repository = "https://github.com/Bytebuddha/yew-route-breadcrumbs"
 license = "MIT"
 keywords = ["yew", "breadcrumbs", "wasm"]
-categories = ["gui", "web-programming", "yew"]
+categories = ["gui", "web-programming"]
 
 [dependencies]
 yew-route-breadcrumbs-derive = { version = "0.1.0", path = "./derive" }
