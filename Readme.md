@@ -1,5 +1,10 @@
 # yew-route-breadcrumbs
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Crates.io](https://img.shields.io/crates/v/yew-route-breadcrumbs.svg)](https://crates.io/crates/yew-route-breadcrumbs)
+[![Docs.rs](https://docs.rs/yew-route-breadcrumbs/badge.svg)](https://docs.rs/yew-route-breadcrumbs)
+[![Build Status](https://travis-ci.org/bytebuddha/yew-route-breadcrumbs.svg?branch=master)](https://travis-ci.org/bytebuddha/yew-route-breadcrumbs)
+
 Small library for generating UI breadcrumbs from the nested enums used as routes
 in yew.
 
