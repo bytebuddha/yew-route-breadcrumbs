@@ -3,6 +3,13 @@ name = "yew-route-breadcrumbs"
 version = "0.1.0"
 authors = ["Bytebuddha <pmg41494@protonmail.com>"]
 edition = "2018"
+description = "Procedural macro to generate UI breadcrumbs from nested enums"
+documentation = "https://docs.rs/yew-route-breadcrumbs"
+readme = "Readme.md"
+repository = "https://github.com/Bytebuddha/yew-route-breadcrumbs"
+license = "MIT"
+keywords = ["yew", "breadcrumbs", "wasm"]
+categories = ["gui", "web-programming", "yew"]
 
 [dependencies]
 yew-route-breadcrumbs-derive = { path = "derive" }
