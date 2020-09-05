@@ -12,4 +12,4 @@ keywords = ["yew", "breadcrumbs", "wasm"]
 categories = ["gui", "web-programming", "yew"]
 
 [dependencies]
-yew-route-breadcrumbs-derive = { path = "derive" }
+yew-route-breadcrumbs-derive = { version = "0.1.0", path = "derive" }
