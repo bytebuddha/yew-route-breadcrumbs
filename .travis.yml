@@ -1,5 +1,5 @@
 language: rust
-rust: [stable, nightly]
+rust: [nightly]
 cache: cargo
 
 before_script:
