@@ -5,7 +5,6 @@ authors = ["Bytebuddha <pmg41494@protonmail.com>"]
 edition = "2018"
 description = "Procedural macro to generate UI breadcrumbs from nested enums"
 documentation = "https://docs.rs/yew-route-breadcrumbs-derive"
-readme = "Readme.md"
 repository = "https://github.com/Bytebuddha/yew-route-breadcrumbs"
 license = "MIT"
 keywords = ["yew", "breadcrumbs", "wasm"]
