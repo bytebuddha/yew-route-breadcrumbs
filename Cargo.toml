@@ -1,0 +1,8 @@
+[package]
+name = "yew-route-breadcrumbs"
+version = "0.1.0"
+authors = ["Bytebuddha <pmg41494@protonmail.com>"]
+edition = "2018"
+
+[dependencies]
+yew-route-breadcrumbs-derive = { path = "derive" }
