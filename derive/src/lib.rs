@@ -1,3 +1,5 @@
+//! Procedural macro that generates UI breadcrumbs from nested enum's used as routes in yew router.
+
 #![feature(proc_macro_diagnostic)]
 #[macro_use] extern crate syn;
 #[macro_use] extern crate quote;
