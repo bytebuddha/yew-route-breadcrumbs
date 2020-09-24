@@ -59,7 +59,7 @@ fn parse_attribute_meta(breadcrumbs: &mut Vec<TokenStream2>, list: syn::MetaList
     if let Some(text) = text {
         let route = route.map(|item|quote!{Some(#item)}).unwrap_or_else(|| quote!{None});
         breadcrumbs.push(quote! {
-            ::yew_route_breadcrumbs::StaticCrumb { text: #text, route: #route }
+            ::yew_route_breadcrumbs::Crumb { text: #text, route: #route }
         });
     }
 }

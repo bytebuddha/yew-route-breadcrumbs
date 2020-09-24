@@ -30,7 +30,7 @@ fn handle_enum_variant(type_attr: &Vec<Attribute>, ty: &Ident, var: &Variant) ->
             if has_breadcrumbs_attribute(&var.attrs) {
                 if count != 1 {
                     error!(fields, "Nested Attribute can only be applied to variants with one unnamed field");
-                    panic!("Inget_attribute_crumbsvalid breadcrumb attribute");
+                    panic!("Invalid breadcrumb attribute");
                 }
                 quote! { #ty::#var_ident(inner) => inner.breadcrumbs().map(|items| {
                     let mut final_items = vec![#(#type_breadcrumbs,)* #(#attributes,)*];

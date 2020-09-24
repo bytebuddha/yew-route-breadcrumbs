@@ -37,12 +37,12 @@ pub fn derive_breadcrumbs(input: TokenStream) -> TokenStream {
     };
     let output = quote! {
         impl #crate_path::BreadCrumbs for #ident {
-            fn breadcrumbs(&self) -> Option<Vec<#crate_path::StaticCrumb>> {
+            fn breadcrumbs(&self) -> Option<Vec<#crate_path::Crumb>> {
                 #implementation
             }
         }
         impl #ident {
-            pub fn breadcrumbs(&self) -> Option<Vec<#crate_path::StaticCrumb>> {
+            pub fn breadcrumbs(&self) -> Option<Vec<#crate_path::Crumb>> {
                 #crate_path::BreadCrumbs::breadcrumbs(self)
             }
         }
