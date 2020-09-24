@@ -1,4 +1,4 @@
-use yew_route_breadcrumbs::{BreadCrumbs, StaticCrumb};
+use yew_route_breadcrumbs::{BreadCrumbs, Crumb};
 
 #[derive(BreadCrumbs)]
 struct EmptyUnit;
@@ -25,7 +25,7 @@ struct MultipleUnitWithRoute;
 fn simple_structs() {
     assert_eq!(None, EmptyUnit.breadcrumbs());
     assert_eq!(
-        Some(vec![StaticCrumb {
+        Some(vec![Crumb {
             text: "Crumb",
             route: None
         }]),
@@ -33,11 +33,11 @@ fn simple_structs() {
     );
     assert_eq!(
         Some(vec![
-            StaticCrumb {
+            Crumb {
                 text: "Crumb1",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "Crumb2",
                 route: None
             }
@@ -45,7 +45,7 @@ fn simple_structs() {
         MultipleUnit.breadcrumbs()
     );
     assert_eq!(
-        Some(vec![StaticCrumb {
+        Some(vec![Crumb {
             text: "Crumb",
             route: Some("/some/route".into())
         }]),
@@ -53,11 +53,11 @@ fn simple_structs() {
     );
     assert_eq!(
         Some(vec![
-            StaticCrumb {
+            Crumb {
                 text: "Crumb1",
                 route: Some("/with/route".into())
             },
-            StaticCrumb {
+            Crumb {
                 text: "Crumb2",
                 route: Some("/other".into())
             }

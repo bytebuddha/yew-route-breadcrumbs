@@ -1,4 +1,4 @@
-use yew_route_breadcrumbs::{BreadCrumbs, StaticCrumb};
+use yew_route_breadcrumbs::{BreadCrumbs, Crumb};
 
 #[derive(BreadCrumbs)]
 #[breadcrumb("Index")]
@@ -33,15 +33,15 @@ enum SubSubRoutes {
 fn nested() {
     assert_eq!(
         Some(vec![
-            StaticCrumb {
+            Crumb {
                 text: "Index",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "SubRoutes",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "A",
                 route: None
             }
@@ -50,15 +50,15 @@ fn nested() {
     );
     assert_eq!(
         Some(vec![
-            StaticCrumb {
+            Crumb {
                 text: "Index",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "SubRoutes",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "B",
                 route: Some("route")
             }
@@ -67,19 +67,19 @@ fn nested() {
     );
     assert_eq!(
         Some(vec![
-            StaticCrumb {
+            Crumb {
                 text: "Index",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "SubRoutes",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "Overall",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "D",
                 route: None
             }
@@ -88,19 +88,19 @@ fn nested() {
     );
     assert_eq!(
         Some(vec![
-            StaticCrumb {
+            Crumb {
                 text: "Index",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "SubRoutes",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "Overall",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "E",
                 route: Some("route".into())
             }
@@ -109,19 +109,19 @@ fn nested() {
     );
     assert_eq!(
         Some(vec![
-            StaticCrumb {
+            Crumb {
                 text: "Index",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "SubRoutes",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "Overall",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "F",
                 route: None
             }

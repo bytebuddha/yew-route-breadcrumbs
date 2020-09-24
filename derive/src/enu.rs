@@ -1,13 +1,16 @@
-use syn::spanned::Spanned;
 use syn::export::TokenStream2;
-use syn::{Fields, Ident, Attribute, DeriveInput, Variant, DataEnum};
+use syn::spanned::Spanned;
+use syn::{Attribute, DataEnum, DeriveInput, Fields, Ident, Variant};
 
-use crate::attr::{has_breadcrumbs_attribute, get_attribute_crumbs};
+use crate::attr::{get_attribute_crumbs, has_breadcrumbs_attribute};
 
 /// Generate the enum implementation of the `breadcrumbs` function.
 pub fn handle_enum(global: &Vec<Attribute>, enu: &DataEnum, input: &DeriveInput) -> TokenStream2 {
     let ty = &input.ident;
-    let iterator = enu.variants.iter().map(|item| handle_enum_variant(global, ty, item));
+    let iterator = enu
+        .variants
+        .iter()
+        .map(|item| handle_enum_variant(global, ty, item));
     quote! {
         match self {
             #(#iterator,)*
@@ -23,13 +26,20 @@ fn handle_enum_variant(type_attr: &Vec<Attribute>, ty: &Ident, var: &Variant) ->
     let attributes = get_attribute_crumbs(&var.attrs);
     let type_breadcrumbs = get_attribute_crumbs(&type_attr);
     match &var.fields {
-        Fields::Unit => quote! { #ty::#var_ident => Some(vec![#(#type_breadcrumbs,)* #(#attributes,)*]) },
-        Fields::Named(_) => quote! { #ty::#var_ident { .. } => Some(vec![#(#type_breadcrumbs,)* #(#attributes,)*]) },
+        Fields::Unit => {
+            quote! { #ty::#var_ident => Some(vec![#(#type_breadcrumbs,)* #(#attributes,)*]) }
+        }
+        Fields::Named(_) => {
+            quote! { #ty::#var_ident { .. } => Some(vec![#(#type_breadcrumbs,)* #(#attributes,)*]) }
+        }
         Fields::Unnamed(fields) => {
             let count = fields.unnamed.iter().count();
             if has_breadcrumbs_attribute(&var.attrs) {
                 if count != 1 {
-                    error!(fields, "Nested Attribute can only be applied to variants with one unnamed field");
+                    error!(
+                        fields,
+                        "Nested Attribute can only be applied to variants with one unnamed field"
+                    );
                     panic!("Invalid breadcrumb attribute");
                 }
                 quote! { #ty::#var_ident(inner) => inner.breadcrumbs().map(|items| {

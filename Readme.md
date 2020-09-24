@@ -16,7 +16,7 @@ use yew_route_breadcrumbs::BreadCrumbs;
 pub enum AppRoutes {
   Index,
   #[breadcrumb("Contact")]
-  Contact,
+  Contact,  // Contact
   #[breadcrumbs]
   Admin(AdminRoutes)
 }
@@ -25,11 +25,11 @@ pub enum AppRoutes {
 #[breadcrumb("Admin", route = "/admin/")]
 pub enum AdminRoutes {
   #[breadcrumb("Dashboard")]
-  Dashboard,
+  Dashboard, // Admin > Dashboard
   #[breadcrumb("Users")]
-  Users,
+  Users, // Admin > Users
   #[breadcrumb("Users", route = "/admin/users/")]
   #[breadcrumb("Create")]
-  CreateUser
+  CreateUser // Admin > Users > Create
 }
  ```

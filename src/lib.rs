@@ -51,13 +51,13 @@ pub use yew_route_breadcrumbs_derive::BreadCrumbs;
 /// A single UI BreadCrumb. A Vector of `Crumbs` can be used to render
 /// the route position in the UI.
 #[derive(Debug, PartialEq, Clone)]
-pub struct Crumb {
+pub struct CrumbOwned {
     pub text: String,
     pub route: Option<String>,
 }
 
 #[derive(Debug, PartialEq, Clone)]
-pub struct StaticCrumb {
+pub struct Crumb {
     pub text: &'static str,
     pub route: Option<&'static str>,
 }
@@ -65,12 +65,16 @@ pub struct StaticCrumb {
 /// Helper trait used by the library
 pub trait BreadCrumbs {
     /// The resulting vector should always contain atleast one element.
-    fn breadcrumbs(&self) -> Option<Vec<StaticCrumb>>;
+    fn breadcrumbs(&self) -> Option<Vec<Crumb>>;
 
-    fn breadcrumbs_owned(&self) -> Option<Vec<Crumb>> {
-        self.breadcrumbs().map(|item|item.into_iter().map(|item| Crumb {
-            text: item.text.to_string(),
-            route: item.route.map(|item| item.to_string())
-        }).collect())
+    fn breadcrumbs_owned(&self) -> Option<Vec<CrumbOwned>> {
+        self.breadcrumbs().map(|item| {
+            item.into_iter()
+                .map(|item| CrumbOwned {
+                    text: item.text.to_string(),
+                    route: item.route.map(|item| item.to_string()),
+                })
+                .collect()
+        })
     }
 }

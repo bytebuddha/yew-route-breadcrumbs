@@ -1,4 +1,4 @@
-use yew_route_breadcrumbs::{BreadCrumbs, StaticCrumb};
+use yew_route_breadcrumbs::{BreadCrumbs, Crumb};
 
 #[derive(BreadCrumbs)]
 enum Simple {
@@ -23,14 +23,14 @@ enum Simple {
 #[test]
 fn simple_enums() {
     assert_eq!(
-        Some(vec![StaticCrumb {
+        Some(vec![Crumb {
             text: "A",
             route: None
         }]),
         Simple::A.breadcrumbs()
     );
     assert_eq!(
-        Some(vec![StaticCrumb {
+        Some(vec![Crumb {
             text: "B",
             route: Some("/route".into())
         }]),
@@ -38,11 +38,11 @@ fn simple_enums() {
     );
     assert_eq!(
         Some(vec![
-            StaticCrumb {
+            Crumb {
                 text: "One",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "Two",
                 route: Some("/some/route".into())
             }
@@ -50,21 +50,21 @@ fn simple_enums() {
         Simple::C.breadcrumbs()
     );
     assert_eq!(
-        Some(vec![StaticCrumb {
+        Some(vec![Crumb {
             text: "D",
             route: Some("route")
         }]),
         Simple::D(()).breadcrumbs()
     );
     assert_eq!(
-        Some(vec![StaticCrumb {
+        Some(vec![Crumb {
             text: "E",
             route: None
         }]),
         Simple::E((), ()).breadcrumbs()
     );
     assert_eq!(
-        Some(vec![StaticCrumb {
+        Some(vec![Crumb {
             text: "F",
             route: None
         }]),
@@ -72,11 +72,11 @@ fn simple_enums() {
     );
     assert_eq!(
         Some(vec![
-            StaticCrumb {
+            Crumb {
                 text: "One",
                 route: None
             },
-            StaticCrumb {
+            Crumb {
                 text: "Two",
                 route: Some("/some/route".into())
             }
